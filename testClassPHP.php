@@ -58,6 +58,5 @@ $hours = [
 ];
 
 foreach ($hours as $hour) {
-	echo  (new MinorAngleOfHour($hour))->getMinorAngleOfHour();
+	echo "\"{$hour}\" = ". (new MinorAngleOfHour($hour))->getMinorAngleOfHour() . "\n\n";
 }
-
