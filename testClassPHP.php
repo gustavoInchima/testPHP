@@ -1,7 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-
 //String de hora y minutos “hh:mm”
 //formato hora “00:00”, “12:30”, “12:05”, “12:12”, “12:27”. No menciona hora militar dado que es un reloj analogo
 //Si el parámetro de la función no fue puesto correctamente o si la hora y minuto no es numérico, la función debe tirar un error. 
@@ -48,22 +46,18 @@ class MinorAngleOfHour
 
 }
 
-$paramHour = "10:30";
-echo  (new MinorAngleOfHour($paramHour))->getMinorAngleOfHour();
+$hours = [
+	'01:45', 
+	'10:30', 
+	'02:25', 
+	'00:00', 
+	'12:30', 
+	'12:05', 
+	'12:12', 
+	'12:27',
+];
 
-exit;
-
-//All hours!
-for ($i=0; $i<=12; $i++){
-	$hour = ($i < 10) ? "0{$i}" : "{$i}";
-
-	for ($j=0; $j<=59; $j++){
-		$minutes = ($j<10) ? ":0{$j}" : ":{$j}";
-		$time = $hour . $minutes;
-		
-		echo $time . "\n";
-		echo (new MinorAngleOfHour($time))->getMinorAngleOfHour() . "\n";
-	}
-	echo '**********************'."\n";
+foreach ($hours as $hour) {
+	echo  (new MinorAngleOfHour($hour))->getMinorAngleOfHour();
 }
 
